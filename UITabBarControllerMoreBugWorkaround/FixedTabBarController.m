@@ -129,6 +129,12 @@
                             // We need to do this because otherwise the previous call will cause the given
                             // Tab to show up twice in the UIMoreListController.
                             [self setViewControllers:correctVCList];
+                            
+                            // This is needed for the navigationBar to update.
+                            // Without this, it might display the nav items of the root view controller,
+                            // not of the top view controller
+                            selectedNavController.navigationBarHidden = YES;
+                            selectedNavController.navigationBarHidden = NO;
                         });
                     } else {
                         MoreTabDLog(@"popping to root");
